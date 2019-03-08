@@ -21,17 +21,15 @@ public static int bronze(String fname){
 		rawdata[x] = rawfile[x+1];
 	}
 
-	for (String s : rawfile) {
-		System.out.println(s);
-	}
-	System.out.println();
-	for (String s : rawdata) {
-		System.out.println(s);
+	ArrayList<String[]> dr = new ArrayList<String[]>();
+	for (int x = 0; x < rawdata.length; x++) {
+		dr.add(rawdata[x].split(" "));
 	}
 
-	System.out.println();
-	for (String s : rawinp) {
-		System.out.println(s);
+	for (String[] st : dr) {
+		for (String se : st) {
+			System.out.println(se);
+		}
 	}
 
 

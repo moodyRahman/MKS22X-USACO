@@ -22,7 +22,7 @@ public static int bronze(String fname){
 	}
 
 	int row = formatted_inputs[0];
-
+	int col = formatted_inputs[1];
 	String[] data = new String[row];
 	int x = 1;
 	while(x < row + 1){
@@ -30,8 +30,20 @@ public static int bronze(String fname){
 		x++;
 	}
 
-	
+	int[][] formatted_data = new int[row][col];
+	for (int r = 0; r < row; r++) {
+		for (int c = 0; c < col; c++) {
+			formatted_data[r][c] = Integer.parseInt(data[r].split(" ")[c]);
+		}
+	}
 
+	for (int[] r : formatted_data) {
+		for (int element : r) {
+			System.out.print(element);
+			System.out.print(" ");
+		}
+		System.out.println();
+	}
 
 
 

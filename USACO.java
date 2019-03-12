@@ -53,6 +53,9 @@ public static int bronze(String fname){
 
 
 	stomper(formatted_data, 1, 4, 4);
+	for (int[] command : formatted_commands) {
+		stomper(formatted_data, command[0], command[1], command[2]);
+	}
 
 	for (int[] r : formatted_data) {
 		for (int c : r) {

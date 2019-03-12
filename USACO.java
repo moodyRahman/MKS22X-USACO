@@ -21,6 +21,17 @@ public static int bronze(String fname){
 		formatted_inputs[x] = Integer.parseInt(rawInput[x]);
 	}
 
+	int row = formatted_inputs[0];
+
+	String[] data = new String[row];
+	int x = 1;
+	while(x < row + 1){
+		data[x - 1] = rawfile[x];
+		x++;
+	}
+
+	
+
 
 
 

@@ -57,9 +57,20 @@ public static int bronze(String fname){
 		stomper(formatted_data, command[0], command[1], command[2]);
 	}
 
+	for (int r = 0; r < formatted_data.length; r++) {
+		for (int c = 0; c < formatted_data[r].length; c++) {
+			formatted_data[r][c] = formatted_inputs[2] - formatted_data[r][c];
+		}
+	}
+
 	for (int[] r : formatted_data) {
 		for (int c : r) {
-			System.out.print(c);
+			if (c < 0) {
+				System.out.print("-");
+			}
+			else {
+				System.out.print(c);
+			}
 			System.out.print(" ");
 		}
 		System.out.println();

@@ -51,7 +51,10 @@ public static int bronze(String fname){
 		}
 	}
 
-	for (int[] r : formatted_commands) {
+
+	stomper(formatted_data, 1, 4, 4);
+
+	for (int[] r : formatted_data) {
 		for (int c : r) {
 			System.out.print(c);
 			System.out.print(" ");
@@ -62,7 +65,29 @@ public static int bronze(String fname){
 
 
 
+
 	return 0;
+}
+
+private static void stomper(int[][] data, int r, int c, int down){
+	int largest = 0;
+	for (int curr_r = -1; curr_r < 2; curr_r++) {
+		for (int curr_c = -1; curr_c < 2; curr_c++) {
+			if(data[r + curr_r] [c + curr_c] > largest){
+				largest = data[r + curr_r] [c + curr_c];
+			}
+		}
+	}
+
+	int new_elevation = largest - down;
+
+	for (int curr_r = -1; curr_r < 2; curr_r++) {
+		for (int curr_c = -1; curr_c < 2; curr_c++) {
+			if(data[r + curr_r] [c + curr_c] > new_elevation){
+				data[r + curr_r] [c + curr_c] = new_elevation;
+			}
+		}
+	}
 }
 
 private static String[] reader(String fname, ArrayList<String> boop) throws FileNotFoundException{

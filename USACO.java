@@ -9,16 +9,16 @@ public static int bronze(String fname){
 	ArrayList<String> temp = new ArrayList<String>();
 	String[] rawfile = null;
 	try {
-		rawfile = USACO.reader(fname, temp);
-	} catch(FileNotFoundException e) {
+		rawfile = USACO.reader(fname, temp);	//read into one big ole
+	} catch(FileNotFoundException e) {		//String[] called rawfile
 		System.out.println("NOT A VALID FILE >:(");
 		System.exit(0);
 	}
 
-	String[] rawInput = rawfile[0].split(" ");
-	int[] formatted_inputs = new int[4];
+	String[] rawInput = rawfile[0].split(" ");	// the first elements is
+	int[] formatted_inputs = new int[4];		// always the input
 	for (int x = 0; x < 4; x++) {
-		formatted_inputs[x] = Integer.parseInt(rawInput[x]);
+		formatted_inputs[x] = Integer.parseInt(rawInput[x]); // parsethem
 	}
 
 	int row = formatted_inputs[0];
@@ -37,9 +37,23 @@ public static int bronze(String fname){
 		}
 	}
 
-	for (int[] r : formatted_data) {
-		for (int element : r) {
-			System.out.print(element);
+
+	String[] commands = new String[rawfile.length - 1 - row];
+	while(x < rawfile.length){
+		commands[x - row - 1] = rawfile[x];
+		x++;
+	}
+
+	int[][] formatted_commands = new int[commands.length][3];
+	for (int r = 0; r < commands.length; r++) {
+		for (int c = 0; c < 3; c++) {
+			formatted_commands[r][c] = Integer.parseInt(commands[r].split(" ")[c]);
+		}
+	}
+
+	for (int[] r : formatted_commands) {
+		for (int c : r) {
+			System.out.print(c);
 			System.out.print(" ");
 		}
 		System.out.println();

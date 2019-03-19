@@ -5,6 +5,12 @@ import java.util.ArrayList;
 
 public class USACO{
 
+
+public static int silver(String fname){
+	return 42069;
+}
+
+
 public static int bronze(String fname){
 	ArrayList<String> temp = new ArrayList<String>();
 	String[] rawfile = null;
@@ -63,24 +69,18 @@ public static int bronze(String fname){
 		}
 	}
 
+	int cumsum_depth = 0;
 	for (int[] r : formatted_data) {
 		for (int c : r) {
 			if (c < 0) {
-				System.out.print("-");
 			}
 			else {
-				System.out.print(c);
+				cumsum_depth += c;
 			}
-			System.out.print(" ");
 		}
-		System.out.println();
 	}
 
-
-
-
-
-	return 0;
+	return cumsum_depth * 72 * 72;
 }
 
 private static void stomper(int[][] data, int r, int c, int down){
@@ -119,7 +119,8 @@ private static String[] reader(String fname, ArrayList<String> boop) throws File
 
 
 public static void main(String[] args) {
-	USACO.bronze("testcases/makelake.1.in");
+	int b = USACO.bronze("testcases/makelake.3.in");
+	System.out.println(b);
 }
 
 

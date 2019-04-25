@@ -119,7 +119,7 @@ private static String[] reader(String fname, ArrayList<String> boop) throws File
 
 
 // algorithmically determine the possible distances from a point
-private static void silverHelp(int[][] rawmap,int[][] distmap,int start_row_1,int start_col_1,int start_row_2,int start_col_2,int steps_remaining){
+private static int silverHelp(int[][] rawmap,int[][] distmap,int start_row_1,int start_col_1,int start_row_2,int start_col_2,int steps_remaining){
 
 while (steps_remaining > 0){
 	for(int i = 0; i < rawmap.length; i++){
@@ -146,7 +146,15 @@ while (steps_remaining > 0){
  			}
 		}
 	}
+
+	for(int a = 0; a < rawmap.length; a++){
+         	for(int b = 0; b < rawmap[0].length; b++){
+           		rawmap[a][b] = distmap[a][b];
+         	}
+       	}
+       	steps_remaining--;
 }
+     return rawmap[start_row_2-1][start_col_2-1];
 
 }
 

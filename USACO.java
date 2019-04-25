@@ -35,7 +35,7 @@ public static int bronze(String fname){
 		data[x - 1] = rawfile[x];
 		x++;
 	}
-
+ 
 	int[][] formatted_data = new int[row][col];
 	for (int r = 0; r < row; r++) {
 		for (int c = 0; c < col; c++) {

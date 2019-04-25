@@ -58,7 +58,7 @@ public static int bronze(String fname){
 	}
 
 
-	stomper(formatted_data, 1, 4, 4);
+	// stomper(formatted_data, 1, 4, 4);
 	for (int[] command : formatted_commands) {
 		stomper(formatted_data, command[0], command[1], command[2]);
 	}
@@ -115,6 +115,12 @@ private static String[] reader(String fname, ArrayList<String> boop) throws File
 	// String[][] br =
 	boop.toArray(b);
 	return b;
+}
+
+
+// algorithmically determine the possible distances from a point
+private static void silverHelp(){
+
 }
 
 

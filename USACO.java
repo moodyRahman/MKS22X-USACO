@@ -35,7 +35,7 @@ public static int bronze(String fname){
 		data[x - 1] = rawfile[x];
 		x++;
 	}
- 
+
 	int[][] formatted_data = new int[row][col];
 	for (int r = 0; r < row; r++) {
 		for (int c = 0; c < col; c++) {
@@ -119,7 +119,34 @@ private static String[] reader(String fname, ArrayList<String> boop) throws File
 
 
 // algorithmically determine the possible distances from a point
-private static void silverHelp(){
+private static void silverHelp(int[][] rawmap,int[][] distmap,int start_row_1,int start_col_1,int start_row_2,int start_col_2,int steps_remaining){
+
+while (steps_remaining > 0){
+	for(int i = 0; i < rawmap.length; i++){
+ 		for(int j = 0; j < rawmap[0].length; j++){
+
+   			if(rawmap[i][j] != -1){
+     				if(i - 1 >= 0 && rawmap[i-1][j] != -1){
+       					steps_remaining += rawmap[i-1][j];
+     				}
+
+   				if(i + 1 < rawmap.length && rawmap[i+1][j] != -1){
+     					steps_remaining += rawmap[i+1][j];
+   				}
+
+   				if(j - 1 >= 0 && rawmap[i][j-1] != -1){
+     					steps_remaining += rawmap[i][j-1];
+   				}
+
+   				if(j + 1 < rawmap[0].length && rawmap[i][j+1] != -1){
+     					steps_remaining += rawmap[i][j+1];
+   				}
+
+   				distmap[i][j] = steps_remaining;
+ 			}
+		}
+	}
+}
 
 }
 
